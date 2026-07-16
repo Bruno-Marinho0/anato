@@ -63,16 +63,25 @@ export const Lesson = ({ onCancel, onFinish, onHeartDecrement, hearts }) => {
         </button>
 
         {/* 3D Progress Bar container */}
-        <div className="flex-1 bg-gray-light h-4 rounded-full overflow-hidden" style={{ borderBottom: '1px solid #ddd' }}>
+        <div 
+          className="flex-1 h-5 rounded-full overflow-hidden" 
+          style={{ 
+            backgroundColor: 'var(--color-gray-light)',
+            border: '2px solid var(--color-charcoal)',
+            boxShadow: 'inset 0 2px 0 rgba(0,0,0,0.05)'
+          }}
+        >
           <div 
-            className="bg-[#d84634] h-full rounded-full transition-all duration-300 relative"
+            className="h-full rounded-full transition-all duration-300 relative"
             style={{ 
               width: `${isAnswerChecked ? progressCheckedPercent : progressPercent}%`,
-              boxShadow: 'inset 0 -3px 0 rgba(0,0,0,0.15)'
+              backgroundColor: 'var(--color-green)',
+              boxShadow: 'inset 0 -3px 0 var(--color-green-dark)',
+              borderRight: `${(isAnswerChecked ? progressCheckedPercent : progressPercent) > 0 ? '2px solid var(--color-charcoal)' : 'none'}`
             }}
           >
             {/* Glossy reflection line */}
-            <div className="absolute top-0.5 left-2 right-2 h-1 bg-white/20 rounded-full"></div>
+            <div className="absolute top-0.5 left-2 right-2 h-1 bg-white/40 rounded-full"></div>
           </div>
         </div>
 
