@@ -5,12 +5,14 @@ import { Home } from './components/Home';
 import { Quests } from './components/Quests';
 import { Lesson } from './components/Lesson';
 import { Done } from './components/Done';
+import { Profile } from './components/Profile';
 import { Home as HomeIcon, Dumbbell, Shield, Store, User, BookOpen } from 'lucide-react';
 import './App.css';
 
 function App() {
-  const [currentView, setCurrentView] = useState('onboarding'); // onboarding, register, home, quests, lesson, done
+  const [currentView, setCurrentView] = useState('onboarding'); // onboarding, register, home, quests, lesson, done, profile
   const [activeTab, setActiveTab] = useState('home'); // home, quests, practice, ligas, profile
+  const [userProfile, setUserProfile] = useState(null); // { age, name, email, password }
   const [streak, setStreak] = useState(2);
   const [gems, setGems] = useState(565);
   const [hearts, setHearts] = useState(5);
@@ -24,6 +26,12 @@ function App() {
       setCurrentView('home');
     } else if (tab === 'quests') {
       setCurrentView('quests');
+    } else if (tab === 'profile') {
+      if (userProfile) {
+        setCurrentView('profile');
+      } else {
+        setCurrentView('register');
+      }
     } else {
       setCurrentView('mock-tab');
     }
@@ -110,15 +118,26 @@ function App() {
               setCurrentView('home');
               setActiveTab('home');
             }} 
+            onLogin={() => {
+              setCurrentView('register');
+            }}
           />
         );
       case 'register':
         return (
           <Register 
-            onBack={() => setCurrentView('onboarding')} 
+            onBack={() => {
+              if (activeTab === 'profile') {
+                setCurrentView('home');
+                setActiveTab('home');
+              } else {
+                setCurrentView('onboarding');
+              }
+            }} 
             onSubmit={(profile) => {
-              setCurrentView('home');
-              setActiveTab('home');
+              setUserProfile(profile);
+              setCurrentView('profile');
+              setActiveTab('profile');
             }} 
           />
         );
@@ -141,6 +160,18 @@ function App() {
         return (
           <Quests 
             stats={{ streak, gems, hearts }}
+          />
+        );
+      case 'profile':
+        return (
+          <Profile 
+            profile={userProfile}
+            stats={{ streak, gems, hearts }}
+            onLogout={() => {
+              setUserProfile(null);
+              setCurrentView('onboarding');
+              setActiveTab('home');
+            }}
           />
         );
       case 'lesson':
@@ -180,8 +211,8 @@ function App() {
     }
   };
 
-  // Bottom Nav Bar should be visible on dashboard sub-tabs: home, quests, or custom mock tabs
-  const shouldShowBottomNav = ['home', 'quests', 'mock-tab'].includes(currentView);
+  // Bottom Nav Bar should be visible on dashboard sub-tabs: home, quests, profile, or custom mock tabs
+  const shouldShowBottomNav = ['home', 'quests', 'profile', 'mock-tab'].includes(currentView);
 
   return (
     <div className="app-frame">

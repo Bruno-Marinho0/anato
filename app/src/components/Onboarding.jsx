@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const Onboarding = ({ onStartTest, onGoToMap }) => {
+export const Onboarding = ({ onStartTest, onGoToMap, onLogin }) => {
   return (
     <div className="app-content no-nav flex flex-col justify-between p-6 text-center flex-1">
       {/* Top Header / Logo Section */}
@@ -77,6 +77,17 @@ export const Onboarding = ({ onStartTest, onGoToMap }) => {
         >
           IR PARA O MAPA
         </button>
+        
+        <div style={{ marginTop: '12px' }}>
+          <span style={{ color: 'var(--color-gray-medium)', fontSize: '14px', fontWeight: '700' }}>Já tem uma conta? </span>
+          <button 
+            onClick={onLogin}
+            className="text-blue font-extrabold text-sm border-0 bg-transparent cursor-pointer hover:underline"
+            style={{ fontSize: '14px' }}
+          >
+            ENTRAR
+          </button>
+        </div>
       </div>
     </div>
   );

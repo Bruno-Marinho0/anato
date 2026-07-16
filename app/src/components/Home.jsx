@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Mascot } from './Mascot';
-import { BookOpen, Flame, Heart, Shield, Award, Home as HomeIcon, Dumbbell, Compass, HelpCircle, Store, Bell, Check } from 'lucide-react';
+import { BookOpen, Flame, Heart, Zap, Shield, Award, Home as HomeIcon, Dumbbell, Compass, HelpCircle, Store, Bell, Check } from 'lucide-react';
 
 export const Home = ({ 
   stats = { streak: 2, gems: 565, hearts: 5 }, 
@@ -86,9 +86,33 @@ export const Home = ({
   return (
     <div className="app-content">
       {/* Top Stats Bar */}
-      <div className="top-header sticky top-0 z-20" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+      <div className="top-header sticky top-0 z-20">
         {/* Logo */}
         <img src="/logo.png" alt="Anato" style={{ height: '28px', width: 'auto', objectFit: 'contain' }} />
+
+        {/* Stats */}
+        <div className="flex items-center gap-4">
+          <div className="stat-item text-orange" style={{ color: 'var(--color-orange)' }}>
+            <span className="stat-icon">
+              <Flame size={20} fill="var(--color-orange)" strokeWidth={1} />
+            </span>
+            <span>{stats.streak}</span>
+          </div>
+
+          <div className="stat-item text-blue" style={{ color: 'var(--color-blue)' }}>
+            <span className="stat-icon">
+              <Zap size={20} fill="var(--color-blue)" strokeWidth={0} />
+            </span>
+            <span>{stats.gems}</span>
+          </div>
+
+          <div className="stat-item text-red" style={{ color: 'var(--color-red)' }}>
+            <span className="stat-icon">
+              <Heart size={20} fill="var(--color-red)" strokeWidth={1} />
+            </span>
+            <span>{stats.hearts}</span>
+          </div>
+        </div>
       </div>
 
       {/* Main Path Scrollable Contents */}
