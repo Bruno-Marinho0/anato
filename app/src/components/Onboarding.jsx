@@ -27,6 +27,7 @@ export const Onboarding = ({ onStartTest, onGoToMap, onLogin }) => {
             style={{ 
               width: '180px', 
               height: '180px', 
+              maxHeight: '20vh',
               objectFit: 'contain'
             }} 
           />

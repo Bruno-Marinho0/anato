@@ -30,18 +30,18 @@ export const Register = ({ onBack, onSubmit }) => {
       </div>
 
       {/* Main Content Form */}
-      <div className="flex-1 flex flex-col justify-center my-6">
+      <div className="flex-1 flex flex-col justify-center my-3">
         <h2 style={{
-          fontSize: '24px',
+          fontSize: '22px',
           fontWeight: '800',
           color: '#4b4b4b',
           textAlign: 'center',
-          marginBottom: '28px'
+          marginBottom: '16px'
         }}>
           Crie seu perfil
         </h2>
 
-        <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+        <form onSubmit={handleSubmit} className="flex flex-col gap-3">
           <input
             type="number"
             placeholder="Idade"
@@ -85,7 +85,7 @@ export const Register = ({ onBack, onSubmit }) => {
           <button
             type="submit"
             className={`btn-3d ${isFormValid ? 'btn-blue' : 'btn-disabled'}`}
-            style={{ marginTop: '12px' }}
+            style={{ marginTop: '8px' }}
             disabled={!isFormValid}
           >
             CRIAR CONTA
@@ -93,7 +93,7 @@ export const Register = ({ onBack, onSubmit }) => {
         </form>
 
         {/* OR Divider */}
-        <div className="flex items-center gap-4 my-6 text-gray-medium font-bold text-sm justify-center">
+        <div className="flex items-center gap-4 my-3 text-gray-medium font-bold text-sm justify-center">
           <div className="h-[2px] bg-gray-light flex-1"></div>
           <span>OU</span>
           <div className="h-[2px] bg-gray-light flex-1"></div>

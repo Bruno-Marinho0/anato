@@ -19,22 +19,22 @@ export const Done = ({ mistakes = 0, onContinue }) => {
         </div>
 
         {/* Mascot & Mascot cheering side by side with a flexing arm bone */}
-        <div className="flex items-end justify-center gap-2 mb-6">
-          <Mascot state="celebrating" size={160} />
+        <div className="flex items-end justify-center gap-2 mb-4">
+          <Mascot state="celebrating" size={140} />
         </div>
 
         {/* Dynamic Titles */}
         <h1 style={{
-          fontSize: '26px',
+          fontSize: '24px',
           fontWeight: '900',
           color: 'var(--color-orange)',
           textShadow: '0 1px 0 rgba(0,0,0,0.05)',
-          marginBottom: '8px'
+          marginBottom: '6px'
         }}>
           {accuracy === 100 ? 'Pontuação Perfeita!' : 'Excelente Trabalho!'}
         </h1>
         <p style={{
-          fontSize: '15px',
+          fontSize: '14px',
           color: 'var(--color-gray-dark)',
           fontWeight: '600',
           maxWidth: '300px',
@@ -47,18 +47,18 @@ export const Done = ({ mistakes = 0, onContinue }) => {
       </div>
 
       {/* Stats Cards Display */}
-      <div className="grid grid-cols-2 gap-4 my-8 w-full px-2">
+      <div className="grid grid-cols-2 gap-4 my-4 w-full px-2">
         {/* XP Card */}
         <div style={{
           backgroundColor: 'var(--color-yellow)',
           color: 'var(--color-charcoal)',
           borderRadius: '20px',
-          padding: '16px 12px',
+          padding: '12px 10px',
           boxShadow: '0 4px 0 var(--color-yellow-dark)',
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
-          gap: '6px'
+          gap: '4px'
         }}>
           <span style={{
             fontSize: '11px',
@@ -80,12 +80,12 @@ export const Done = ({ mistakes = 0, onContinue }) => {
           backgroundColor: 'var(--color-green)',
           color: 'var(--color-charcoal)',
           borderRadius: '20px',
-          padding: '16px 12px',
+          padding: '12px 10px',
           boxShadow: '0 4px 0 var(--color-green-dark)',
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
-          gap: '6px'
+          gap: '4px'
         }}>
           <span style={{
             fontSize: '11px',
@@ -104,7 +104,7 @@ export const Done = ({ mistakes = 0, onContinue }) => {
       </div>
 
       {/* Continue Action */}
-      <div className="mb-10 w-full px-2">
+      <div className="mb-6 w-full px-2">
         <button
           onClick={onContinue}
           className="btn-3d btn-green"

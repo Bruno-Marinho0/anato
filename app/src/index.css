@@ -35,13 +35,14 @@
 }
 
 body {
-  background-color: #010000;
+  background-color: #ffffff;
   color: var(--color-charcoal);
   font-weight: 700;
   display: flex;
   justify-content: center;
   align-items: flex-start;
   min-height: 100vh;
+  min-height: 100dvh;
   overflow-x: hidden;
 }
 
@@ -49,7 +50,8 @@ body {
 .app-frame {
   width: 100%;
   max-width: 480px;
-  min-height: 100vh;
+  height: 100vh;
+  height: 100dvh;
   background-color: var(--color-white);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
   display: flex;
@@ -61,7 +63,8 @@ body {
 @media (min-width: 481px) {
   .app-frame {
     margin: 20px 0;
-    min-height: calc(100vh - 40px);
+    height: calc(100vh - 40px);
+    height: calc(100dvh - 40px);
     border-radius: 24px;
     border: 6px solid var(--color-charcoal);
   }
