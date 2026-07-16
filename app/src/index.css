@@ -38,12 +38,12 @@ body {
   background-color: #ffffff;
   color: var(--color-charcoal);
   font-weight: 700;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
   min-height: 100vh;
   min-height: 100dvh;
   overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  width: 100%;
 }
 
 /* Mobile responsive outer wrapper */
@@ -59,6 +59,12 @@ body {
 }
 
 @media (min-width: 768px) {
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  
   .app-frame {
     max-width: 480px;
     margin: 20px 0;
